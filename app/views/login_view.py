@@ -60,18 +60,21 @@ class LoginView(BaseView):
         if redirect_to != "/":
             location = location.update_query({"redirect_to": redirect_to})
 
-        if "email" not in post_data:
-            loc = location.update_query({"error": "Email missing"})
-            return web.HTTPFound(location=loc)
+        # Extracting fields from signup form
+        first_name = post_data.get("first_name")
+        last_name = post_data.get("last_name")
+        email = post_data.get("email")
+        password = post_data.get("password")
 
-        if "password" not in post_data:
-            loc = location.update_query({"error": "Password missing"})
+        if not all([first_name, last_name, email, password]):
+            loc = location.update_query({"error": "All fields are required"})
             return web.HTTPFound(location=loc)
 
         try:
             user = auth.create_user(
-                email=post_data["email"],
-                password=post_data["password"]
+                email=email,
+                password=password,
+                display_name=f"{first_name} {last_name}"
             )
         except ValueError as e:
             loc = location.update_query({"error": str(e)})
