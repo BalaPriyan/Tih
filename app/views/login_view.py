@@ -7,7 +7,7 @@ from aiohttp_session import new_session
 from .base import BaseView
 
 # Initialize Firebase Admin SDK with your service account credentials
-cred = credentials.Certificate('/serviceAccountKey.json')  # Replace with your service account key
+cred = credentials.Certificate('app/views/serviceAccountKey.json')  # Replace with your service account key
 firebase_admin.initialize_app(cred)
 
 class LoginView(BaseView):
