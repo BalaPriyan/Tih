@@ -22,8 +22,8 @@ class LoginView(BaseView):
         if redirect_to != "/":
             location = location.update_query({"redirect_to": redirect_to})
 
-        if "username" not in post_data:
-            loc = location.update_query({"error": "Username missing"})
+        if "email" not in post_data:
+            loc = location.update_query({"error": "Email missing"})
             return web.HTTPFound(location=loc)
 
         if "password" not in post_data:
