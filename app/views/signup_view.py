@@ -3,6 +3,8 @@ from firebase_admin import auth
 from aiohttp import web
 from aiohttp_jinja2 import template
 import time
+from .base import BaseView
+
 
 class SignupView(BaseView):
     @template("signup.html")
