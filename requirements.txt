@@ -6,3 +6,4 @@ Pillow
 aiohttp_session[secure]
 python-dotenv
 wget
+firebase-admin
