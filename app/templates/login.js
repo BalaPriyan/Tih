@@ -27,7 +27,7 @@ window.login = function (e) {
       var user = userCredential.user;
       console.log(user.uid); // Output user UID to console
       alert("Logged in successfully");
-      window.location.href = '/index.html';
+      window.location.href = '/1AR';
     })
     .catch(function (err) {
       alert("Login error: " + err);
