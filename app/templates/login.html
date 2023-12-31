@@ -14,19 +14,19 @@
 			</h2>
 		</div>
 		{% endif %}
-		<form class="mt-8 space-y-6" action="/login" method="POST">
+		<form class="mt-8 space-y-6" action="/login" method="POST" onsubmit="login(event)">
 			<input type="hidden" name="remember" value="true">
             <input type="hidden" name="redirect_to" value="{{redirect_to}}">
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
                     <label for="email-address" class="sr-only">Username</label>
-                    <input id="email-address" name="username" type="text" required
+                    <input id="email" name="" type="text" required
                         class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-900 placeholder-gray-700 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-red-500 dark:focus:border-red-500 focus:z-10 sm:text-sm mb-2"
-                        placeholder="Username">
+                        placeholder="email">
                 </div>
                 <div>
                     <label for="password" class="sr-only">Password</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" required
+                    <input id="password" name="" type="password" autocomplete="current-password" required
                         class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-900 placeholder-gray-700 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-red-500 dark:focus:border-red-500 focus:z-10 sm:text-sm mt-2"
                         placeholder="Password">
                 </div>
@@ -40,6 +40,6 @@
         </form>
     </div>
 </div>
-
+<script src="/login.js" type="module"></script>
 
 {% include 'footer.html' %}
