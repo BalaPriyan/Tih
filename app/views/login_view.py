@@ -1,10 +1,9 @@
 import time
-
 from aiohttp import web
 import aiohttp_jinja2
 from aiohttp_session import new_session
 from .base import BaseView
-
+from firebase_admin import auth
 
 class LoginView(BaseView):
     @aiohttp_jinja2.template("login.html")
@@ -18,19 +17,19 @@ class LoginView(BaseView):
         if redirect_to != "/":
             location = location.update_query({"redirect_to": redirect_to})
 
-        if "username" not in post_data:
-            loc = location.update_query({"error": "Username missing"})
+        if "username" not in post_data or "password" not in post_data:
+            loc = location.update_query({"error": "Username or password missing"})
             return web.HTTPFound(location=loc)
 
-        if "password" not in post_data:
-            loc = location.update_query({"error": "Password missing"})
-            return web.HTTPFound(location=loc)
+        try:
+            user = auth.get_user_by_email(post_data["username"])
+            # Authenticate user using Firebase
+            authenticated = auth.verify_password(user.uid, post_data["password"])
+        except auth.UserNotFoundError:
+            authenticated = False
 
-        authenticated = (post_data["username"] == req.app["username"]) and (
-            post_data["password"] == req.app["password"]
-        )
         if not authenticated:
-            loc = location.update_query({"error": "Wrong Username or Passowrd"})
+            loc = location.update_query({"error": "Wrong Username or Password"})
             return web.HTTPFound(location=loc)
 
         session = await new_session(req)
