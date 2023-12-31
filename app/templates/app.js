@@ -26,6 +26,8 @@ window.signup = function (e) {
     .then(function (userCredential) {
       var user = userCredential.user;
       alert("Signed up successfully");
+      window.location.href = '/login';
+      
       // Here you can handle additional user information like names if you're using Firestore or other databases
     })
     .catch(function (err) {
