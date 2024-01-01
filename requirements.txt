@@ -9,6 +9,8 @@ aiohttp_session[secure]
 python-dotenv
 wget
 
+
+setuptools
 # Cloud Services and APIs
 firebase-admin
 gcloud
