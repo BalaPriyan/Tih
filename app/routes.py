@@ -47,7 +47,6 @@ async def setup_routes(app: web.Application, handler: Views):
         web.get("/", handler.home, name="home"),
         web.get("/signup", handler.login_get, name="singup_page"),
         web.get("/login", handler.login_get, name="login_page"),
-        web.post("/login", handler.login_post, name="login_handle"),
         web.get("/logout", handler.logout_get, name="logout"),
         web.get("/favicon.ico", handler.faviconicon, name="favicon"),
     ]
