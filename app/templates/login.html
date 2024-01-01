@@ -1,5 +1,6 @@
 {% include 'header.html' %}
 
+<<<<<<< HEAD
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-md w-full space-y-8">
 		<div>
@@ -30,17 +31,45 @@
                         class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-900 placeholder-gray-700 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-red-500 dark:focus:border-red-500 focus:z-10 sm:text-sm mt-2"
                         placeholder="Password">
                 </div>
+=======
+    <br/>
+      <div class="jumbotron">
+        <h1 class="display-4">Hello, A.I World!</h1>
+        <p class="lead">This is a simple Web App Demonstrating the Value of Firebase Authentication using Python</p>
+        <hr class="my-4">
+        {% if smessage %}
+          <div class="alert alert-success">
+            {{ smessage }}
+          </div>
+        {% endif %}
+        {% if umessage %}
+          <div class="alert alert-danger">
+            {{ umessage }}
+          </div>
+        {% endif %}
+        <form action="/login" method="post">
+            <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" name="name"  placeholder="Enter email">
+>>>>>>> f48458df6c94c8aaffd1702096105a8b70c61072
             </div>
-            <div>
-                <button type="submit"
-                    class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-red-700 dark:hover:bg-red-900 dark:focus:ring-red-500">
-                    Sign in
-                </button>
-		<a herf="signup>new user</a>
+            <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
-    </div>
-</div>
-<script src="/login.js" type="module"></script>
+
+        <div class="row">
+          <div class="col-sm">
+            <a href="/forgot_password" class="text-decoration-none">Forgot Password</a>
+          </div>
+          <div class="col-sm">
+            <a href="/create_account" class="text-decoration-none">Create Account</a>
+          </div>
+        </div>
+
+     </div>
+
 
 {% include 'footer.html' %}

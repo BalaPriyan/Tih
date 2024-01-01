@@ -1,3 +1,5 @@
+# Web Frameworks and Utilities
+Flask
 aiohttp[speedups]
 aiohttp-jinja2
 telethon
@@ -6,4 +8,32 @@ Pillow
 aiohttp_session[secure]
 python-dotenv
 wget
+
+pycryptodome-binary
+setuptools
+# Cloud Services and APIs
 firebase-admin
+gcloud
+googleapis-common-protos
+httplib2
+oauth2client
+protobuf
+requests
+requests-toolbelt
+
+# Cryptography and Security
+pycryptodome>=3.4.3
+rsa
+six
+
+# Miscellaneous
+Click
+itsdangerous
+Jinja2
+jws
+MarkupSafe
+pyasn1
+pyasn1-modules
+Pyrebase
+python-jwt
+Werkzeug
