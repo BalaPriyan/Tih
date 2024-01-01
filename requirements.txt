@@ -9,7 +9,7 @@ aiohttp_session[secure]
 python-dotenv
 wget
 
-
+pycryptodome-binary
 setuptools
 # Cloud Services and APIs
 firebase-admin
