@@ -18,7 +18,7 @@ from .logout_view import LogoutView
 from .faviconicon_view import FaviconIconView
 from .middlewhere import middleware_factory
 from .forpassword_view import ForgotPasswordView
-
+from .signup_view import SignupView
 
 TELEGRAM_CHAT = Union[Chat, User, Channel]
 
@@ -34,6 +34,7 @@ class Views(
     WildcardView,
     LoginView,
     LogoutView,
+    SignupView,
     FaviconIconView,
 ):
     def __init__(self, client: Client):
