@@ -15,7 +15,7 @@ users_collection = db["users"]
 class ForgotPasswordView(BaseView):
     @aiohttp_jinja2.template("forgot_password.html")
     async def forgot_password_get(self, req: web.Request) -> web.Response:
-        return web.Response(text="Render your forgot password form here")
+        return dict(authenticated=False, **req.query)
 
     async def forgot_password_post(self, req: web.Request) -> web.Response:
         post_data = await req.post()
