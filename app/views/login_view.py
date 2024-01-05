@@ -12,7 +12,7 @@ users_collection = db["users"]
 class LoginView(BaseView):
     @aiohttp_jinja2.template("login.html")
     async def login_get(self, req: web.Request) -> web.Response:
-        return web.Response(text="Render your login form here")  # Replace with your form rendering logic
+        return dict(authenticated=False, **req.query) # Replace with your form rendering logic
 
     async def login_post(self, req: web.Request) -> web.Response:
         post_data = await req.post()
