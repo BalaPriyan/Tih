@@ -52,8 +52,8 @@ async def setup_routes(app: web.Application, handler: Views):
         web.get("/signup", handler.signup_post, name="signup_handle"),
         web.get("/forget_password", handler.forgot_password_get, name="forget_page"),
         web.get("/forget_password", handler.forgot_password_post, name="forget_handle"),
-        web.gget("/reset_password", handler.reset_password_get, name="reset_page"),
-        web.gget("/reset_password", handler.forgot_password_post, name="forget_handle"),
+        web.get("/reset_password", handler.reset_password_get, name="reset_page"),
+        web.get("/reset_password", handler.forgot_password_post, name="forget_handle"),
         web.get("/favicon.ico", handler.faviconicon, name="favicon"),
     ]
 
