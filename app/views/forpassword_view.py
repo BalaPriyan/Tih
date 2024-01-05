@@ -4,6 +4,7 @@ import smtplib
 from email.message import EmailMessage
 from aiohttp import web
 from aiohttp_session import new_session
+import aiohttp_jinja2
 from .base import BaseView
 
 # Establish a connection to MongoDB
