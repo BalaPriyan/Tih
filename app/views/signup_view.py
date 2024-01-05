@@ -35,7 +35,7 @@ async def send_email(recipient, subject, message):
 class SignupView(BaseView):
     @aiohttp_jinja2.template("signup.html")
     async def signup_get(self, req: web.Request) -> web.Response:
-        return dict(authenticated=False, **req.query)
+        return dict(authenticated=True, **req.query)
 
     async def signup_post(self, req: web.Request) -> web.Response:
         post_data = await req.post()
