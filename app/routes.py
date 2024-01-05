@@ -45,10 +45,15 @@ async def setup_routes(app: web.Application, handler: Views):
     include_chats = index_settings["include_chats"]
     routes = [
         web.get("/", handler.home, name="home"),
-        web.get("/signup", handler.login_get, name="singup_page"),
         web.get("/login", handler.login_get, name="login_page"),
         web.post("/login", handler.login_post, name="login_handle"),
         web.get("/logout", handler.logout_get, name="logout"),
+        web.get("/signup", handler.signup_get, name="signup_page"),
+        web.get("/signup", handler.signup_post, name="signup_handle"),
+        web.get("/forget_password", handler.forgot_password_get, name="forget_page"),
+        web.get("/forget_password", handler.forgot_password_post, name="forget_handle"),
+        web.gget("/reset_password", handler.reset_password_get, name="reset_page"),
+        web.gget("/reset_password", handler.forgot_password_post, name="forget_handle"),
         web.get("/favicon.ico", handler.faviconicon, name="favicon"),
     ]
 
